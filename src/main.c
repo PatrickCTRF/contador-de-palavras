@@ -18,7 +18,9 @@ int main(){
   
   if(str != NULL) resultado = trataString(str);//Somente chama a função se a string str não estiver VAZIA (quando o usuário não insere nenhuma palavra e clica enter).
   
-  printf("Palavras: %d\n", resultado);
+  printf("%d\n", resultado);
+  
+  return 0;
 }
 
 /**
@@ -28,6 +30,7 @@ int main(){
 int trataString(char *str){
   int i = 0;
   int QtdPalavras = 0;
+  char ultimo = -1, penultimo = -1;
   
   if(str == NULL) return -1;
   
