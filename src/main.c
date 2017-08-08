@@ -9,10 +9,11 @@
 #include<stdlib.h>
 
 int trataString(char *);//A função que receberá a string inserida e retornará a quantidade de palavras na mesma.
+int conjunto(char c);
 
 int main(){
-  int QtdPalavras = 0, resultado = 0;
-  char *str = NULL;//O ponteiro para array de caracteres que guardará nossa string.
+  int resultado = 0;
+  char str[100];//O ponteiro para array de caracteres que guardará nossa string.
 
   scanf("%[^\n]", str);//Recebemos a string de entrada até ser inserido o caractere de quebra de linha.
   
@@ -36,13 +37,13 @@ int trataString(char *str){
   
   for(i = 0; str[i] != '\0'; i++){
     
-    if(conjunto(str[i]) == 0 && conjunto[ultimo] != 0){//Se estamos sobre um separador e o caractere anterior não era separador, conte mais uma palavra.
+    if(conjunto(str[i]) == 0 && conjunto(ultimo) != 0){//Se estamos sobre um separador e o caractere anterior não era separador, conte mais uma palavra.
       
       QtdPalavras++;
       
     }
       
-    if(conjunto(str[i]) == 1 && (ultimo == '.' || ultimo == ',') && conjunto[penultimo] == 1){//Esta condição indica que passamos por um número de ponto flutuante.
+    if(conjunto(str[i]) == 1 && (ultimo == '.' || ultimo == ',') && conjunto(penultimo) == 1){//Esta condição indica que passamos por um número de ponto flutuante.
       
       QtdPalavras--;//Os algarismos de um ponto flutuante serão contados como duas palavras quando deveriam ser apenas uma. Nesta linha, descontamos este erro.
       
